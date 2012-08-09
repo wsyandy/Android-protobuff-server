@@ -29,9 +29,11 @@ class TCPserver(threading.Thread):
         self.socket.bind((HOST, PORT))
         self.socket.listen(5)
         self.ready = False
+        self.finished = True
         
     def run(self):
         self.pipe, _ = self.socket.accept()
+        self.finished = False
         self.ready = True
         
     def sendSnap(self):
@@ -42,11 +44,13 @@ class TCPserver(threading.Thread):
     def sendQuit(self):
         t = threading.Thread(target=self.pipe.send, args=('q\n', ))
         t.start()
+        t.join()
         self.stop()
         
     def stop(self):
         self.socket.close()
         self.pipe.close()
+        self.finished = True
         
 
         
