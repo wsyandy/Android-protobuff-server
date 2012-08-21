@@ -1,0 +1,9 @@
+package sfm;
+
+import "data.proto";
+import "matches.proto";
+
+message SFMpipeline{
+	optional FrameProto frame = 1;
+	optional MatchesProto matches = 2;
+}

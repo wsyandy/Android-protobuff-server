@@ -65,8 +65,7 @@ class tkGUI:
             try:
                 rawstring = indata.data.get_nowait()
                 imageNp = np.fromstring(rawstring, dtype='uint8')
-                imgecv1 = cv2.imdecode(imageNp, -1) # opencv used only for this reason JPEG -> raw
-                imgecv = cv2.cvtColor(imgecv1, cv2.cv.CV_BGR2RGB)
+                imgecv = cv2.imdecode(imageNp, 0) # opencv used only for this reason JPEG -> raw
                 pi = Image.fromarray(imgecv)
                 photo = ImageTk.PhotoImage(pi)
                 self.image.config(image = photo)

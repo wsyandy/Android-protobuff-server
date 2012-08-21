@@ -9,6 +9,10 @@ import threading
 import socket
 import zlib
 import data_pb2
+import matches_pb2
+import unionProto_pb2
+import cv2
+import numpy as np
 import Queue
 import Tkinter as tk
 
@@ -46,7 +50,12 @@ class UDPread(threading.Thread):
         self.showData = tk.StringVar()
         self.showMat  = tk.StringVar()
         self.start()
-          
+
+    def drawKpts(self, kpts, image):
+        for kp in kpts:
+            cv2.circle(image, (int(kp.ptX), int(kp.ptY)), 2*int(kp.octave+1), (0, 0, 255))
+        return image
+
     def run(self):
         self.accum = '{:<58}'.format('UDP flow monitor online...')
         self.console.set(self.accum)
@@ -55,7 +64,7 @@ class UDPread(threading.Thread):
         read = False
         first = True;
         sep = '  ________________________________________________________'
-        
+        j = 0
         while not self.endthis:
             data = self.getData(15000)
             if data:
@@ -70,7 +79,6 @@ class UDPread(threading.Thread):
                     chunk_i = 0
                     message = ''
                     read = True
-                    i = i + 1
                 else:
                     if read:
                         message += data
@@ -88,32 +96,53 @@ class UDPread(threading.Thread):
                             chksumB = zlib.crc32(message)& 0xffffffff
                             latestFr = 0;
                             if intChckA == chksumB:
+                                i = i + 1
                                 frame = data_pb2.FrameProto()
+                                matches = matches_pb2.MatchesProto()
                                 frame.ParseFromString(message)
-                                file_name = 'logs/%04d.frs'%i
-                                self.accum = '\n'.join((self.accum,'  frame{:#04} >> {}  |  devId: {:#02}  |  Checksum OK'.format(frame.seq, file_name, frame.id)))
-                                self.console.set(self.accum)
-                                self.data.put( frame.images[0].bytedata ) # put image into a queue
-                                
-                                # put metadata into string
-                                meta = frame.metadata
-                                enumDescr = data_pb2.MetadataProto.DESCRIPTOR.enum_types_by_name['SensorType']
-                                l1 = 'VICON (x, y, z) (r, p, y): \n({: 2.3f}, {: 2.3f}, {: 2.3f})\n({: 2.3f}, {: 2.3f}, {: 2.3f})\n'.format(meta.pos_x,meta.pos_y, meta.pos_z, meta.ang_x, meta.ang_y, meta.ang_z)
-                                l2 = '{} SENSOR (x, y, z):\n({: 2.3f}, {: 2.3f}, {: 2.3f})\ntimestamp: {}'.format( enumDescr.values_by_number[meta.type].name, meta.val_0, meta.val_1, meta.val_2, meta.timestamp )
-                                self.showData.set( '\n'.join( (l1,l2) ) )
-                                
-                                # put matrix data into string
-                                matK = frame.cameraMatrix
-                                mat = '{: > 6.1f} {: > 6.1f} {: > 6.1f}\n      {: > 6.1f} {: > 6.1f} {: > 6.1f}\n      {: > 6.1f} {: > 6.1f} {: > 6.1f}'.format(*matK.data)
-                                matC = frame.cameraBodyTrans
-                                mat2 ='{: > 6.3f} {: > 6.3f} {: > 6.3f}\n      {: > 6.3f} {: > 6.3f} {: > 6.3f}\n      {: > 6.3f} {: > 6.3f} {: > 6.3f}'.format(*matC.data)
-                                self.showMat.set('  K:  {: >24}\n\n  R:  {: >24}'.format(mat,mat2))
-                                
-                                # save data
-                                f = open(file_name, 'w')
-                                f.write(message)
-                                f.close
-                                latestFr = frame.seq
+                                matches.ParseFromString(message)
+                                if frame.seq:
+                                    file_name = 'logs/%04d.frs'%i
+                                    self.accum = '\n'.join((self.accum,'  frame{:#04} >> {}  |  devId: {:#02}  |  Checksum OK'.format(frame.seq, file_name, frame.id)))
+                                    self.console.set(self.accum)
+                                    if frame.images:
+                                        imageNp = np.fromstring(frame.images[0].bytedata, dtype='uint8')
+                                        imgCV = cv2.imdecode(imageNp, 1) # opencv used only for this reason JPEG -> raw
+                                        if frame.keypoints:
+                                            image = self.drawKpts(frame.keypoints.keypoints, imgCV)
+                                        else:
+                                            image = imgCV
+                                        self.data.put( image ) # put image into a queue
+                                    # put metadata into string
+                                    meta = frame.metadata
+                                    enumDescr = data_pb2.MetadataProto.DESCRIPTOR.enum_types_by_name['SensorType']
+                                    l1 = 'VICON (x, y, z) (r, p, y): \n({: 2.3f}, {: 2.3f}, {: 2.3f})\n({: 2.3f}, {: 2.3f}, {: 2.3f})\n'.format(meta.pos_x,meta.pos_y, meta.pos_z, meta.ang_x, meta.ang_y, meta.ang_z)
+                                    l2 = '{} SENSOR (x, y, z):\n({: 2.3f}, {: 2.3f}, {: 2.3f})\ntimestamp: {}'.format( enumDescr.values_by_number[meta.type].name, meta.val_0, meta.val_1, meta.val_2, meta.timestamp )
+                                    self.showData.set( '\n'.join( (l1,l2) ) )
+                                    
+                                    # put matrix data into string
+                                    matK = frame.cameraMatrix
+                                    mat = '{: > 6.1f} {: > 6.1f} {: > 6.1f}\n      {: > 6.1f} {: > 6.1f} {: > 6.1f}\n      {: > 6.1f} {: > 6.1f} {: > 6.1f}'.format(*matK.data)
+                                    matC = frame.cameraBodyTrans
+                                    mat2 ='{: > 6.3f} {: > 6.3f} {: > 6.3f}\n      {: > 6.3f} {: > 6.3f} {: > 6.3f}\n      {: > 6.3f} {: > 6.3f} {: > 6.3f}'.format(*matC.data)
+                                    self.showMat.set('  K:  {: >24}\n\n  R:  {: >24}'.format(mat,mat2))
+                                    
+                                    # save data
+                                    f = open(file_name, 'w')
+                                    f.write(message)
+                                    f.close
+                                    latestFr = frame.seq
+                                else:
+                                    j = j + 1
+                                    file_name = 'logs/%03dto%03d.mtc'%(matches.imageLseq, matches.imageRseq)
+                                    # self.accum = '\n'.join((self.accum,'   matches  >> {}  |  devId: {:#02}  |  Checksum OK'.format(file_name, matches.id)))
+                                    self.accum = '\n'.join((self.accum,'  matches >> {}|  devId: {:#02}  |  Checksum OK'.format(file_name, 3)))
+                                    self.console.set(self.accum)
+                                    # save data
+                                    f = open(file_name, 'w')
+                                    f.write(message)
+                                    f.close
+                                    print "matches"
                             else:
                                 self.accum = '\n'.join((self.accum,'  frame{:#04} >> {}  |  devId: {:#02}  |  Checksum!OK'.format(latestFr+1, 'filenotstored', 0)))
                                 self.console.set(self.accum)

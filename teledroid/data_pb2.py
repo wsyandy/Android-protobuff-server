@@ -11,7 +11,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='data.proto',
   package='sfm',
-  serialized_pb='\n\ndata.proto\x12\x03sfm\"+\n\rCvMatDimProto\x12\x0c\n\x04size\x18\x01 \x01(\x05\x12\x0c\n\x04step\x18\x02 \x01(\x05\"\xbb\x01\n\ncvMatProto\x12\x0e\n\x06n_dims\x18\x01 \x01(\x05\x12 \n\x04\x64ims\x18\x02 \x03(\x0b\x32\x12.sfm.CvMatDimProto\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x10\n\x08\x62ytedata\x18\x04 \x01(\x0c\x12\x30\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\x19.sfm.cvMatProto.ImageType:\x05\x63vMat\")\n\tImageType\x12\t\n\x05\x63vMat\x10\x00\x12\x08\n\x04JPEG\x10\x01\x12\x07\n\x03RAW\x10\x02\"!\n\x11\x43\x61meraMatrixProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"$\n\x14\x43\x61meraBodyTransProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"\xc8\x02\n\rMetadataProto\x12\r\n\x05\x61ng_x\x18\x01 \x01(\x02\x12\r\n\x05\x61ng_y\x18\x02 \x01(\x02\x12\r\n\x05\x61ng_z\x18\x03 \x01(\x02\x12\r\n\x05pos_x\x18\x04 \x01(\x02\x12\r\n\x05pos_y\x18\x05 \x01(\x02\x12\r\n\x05pos_z\x18\x06 \x01(\x02\x12\x11\n\ttimestamp\x18\x07 \x01(\x06\x12\r\n\x05val_0\x18\x08 \x01(\x02\x12\r\n\x05val_1\x18\t \x01(\x02\x12\r\n\x05val_2\x18\n \x01(\x02\x12\x34\n\x04type\x18\x0b \x01(\x0e\x32\x1d.sfm.MetadataProto.SensorType:\x07GRAVITY\"g\n\nSensorType\x12\t\n\x05\x41\x43\x43\x45L\x10\x00\x12\x08\n\x04GYRO\x10\x01\x12\x0b\n\x07MAGNETO\x10\x02\x12\x0c\n\x08LINACCEL\x10\x03\x12\x0f\n\x0bORIENTATION\x10\x04\x12\x0b\n\x07GRAVITY\x10\x05\x12\x0b\n\x07ROTVECT\x10\x06\"B\n\x0b\x43vRectProto\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xff\x01\n\nFrameProto\x12\x1f\n\x06images\x18\x01 \x03(\x0b\x32\x0f.sfm.cvMatProto\x12,\n\x0c\x63\x61meraMatrix\x18\x02 \x01(\x0b\x32\x16.sfm.CameraMatrixProto\x12\x32\n\x0f\x63\x61meraBodyTrans\x18\x03 \x01(\x0b\x32\x19.sfm.CameraBodyTransProto\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.sfm.MetadataProto\x12\n\n\x02id\x18\x05 \x01(\x06\x12\x0b\n\x03seq\x18\x06 \x01(\x06\x12\x10\n\x08\x62\x61seline\x18\x08 \x01(\x02\x12\x1d\n\x03roi\x18\t \x01(\x0b\x32\x10.sfm.CvRectProtoB$\n\x18\x63vg.sfmPipeline.protoLogB\x08ProtoLog')
+  serialized_pb='\n\ndata.proto\x12\x03sfm\"+\n\rCvMatDimProto\x12\x0c\n\x04size\x18\x01 \x01(\x05\x12\x0c\n\x04step\x18\x02 \x01(\x05\"\xbb\x01\n\ncvMatProto\x12\x0e\n\x06n_dims\x18\x01 \x01(\x05\x12 \n\x04\x64ims\x18\x02 \x03(\x0b\x32\x12.sfm.CvMatDimProto\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x10\n\x08\x62ytedata\x18\x04 \x01(\x0c\x12\x30\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\x19.sfm.cvMatProto.ImageType:\x05\x63vMat\")\n\tImageType\x12\t\n\x05\x63vMat\x10\x00\x12\x08\n\x04JPEG\x10\x01\x12\x07\n\x03RAW\x10\x02\"\xb6\x01\n\tKeypoints\x12,\n\tkeypoints\x18\x01 \x03(\x0b\x32\x19.sfm.Keypoints.cvKeypoint\x1a{\n\ncvKeypoint\x12\x0b\n\x03ptX\x18\x01 \x01(\x02\x12\x0b\n\x03ptY\x18\x02 \x01(\x02\x12\x0c\n\x04size\x18\x03 \x01(\x02\x12\x11\n\x05\x61ngle\x18\x04 \x01(\x02:\x02-1\x12\x10\n\x08response\x18\x05 \x01(\x02\x12\x0e\n\x06octave\x18\x06 \x01(\x05\x12\x10\n\x08\x63lass_id\x18\x07 \x01(\x05\"!\n\x11\x43\x61meraMatrixProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"$\n\x14\x43\x61meraBodyTransProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"\xc8\x02\n\rMetadataProto\x12\r\n\x05\x61ng_x\x18\x01 \x01(\x02\x12\r\n\x05\x61ng_y\x18\x02 \x01(\x02\x12\r\n\x05\x61ng_z\x18\x03 \x01(\x02\x12\r\n\x05pos_x\x18\x04 \x01(\x02\x12\r\n\x05pos_y\x18\x05 \x01(\x02\x12\r\n\x05pos_z\x18\x06 \x01(\x02\x12\x11\n\ttimestamp\x18\x07 \x01(\x06\x12\r\n\x05val_0\x18\x08 \x01(\x02\x12\r\n\x05val_1\x18\t \x01(\x02\x12\r\n\x05val_2\x18\n \x01(\x02\x12\x34\n\x04type\x18\x0b \x01(\x0e\x32\x1d.sfm.MetadataProto.SensorType:\x07GRAVITY\"g\n\nSensorType\x12\t\n\x05\x41\x43\x43\x45L\x10\x00\x12\x08\n\x04GYRO\x10\x01\x12\x0b\n\x07MAGNETO\x10\x02\x12\x0c\n\x08LINACCEL\x10\x03\x12\x0f\n\x0bORIENTATION\x10\x04\x12\x0b\n\x07GRAVITY\x10\x05\x12\x0b\n\x07ROTVECT\x10\x06\"B\n\x0b\x43vRectProto\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xc8\x02\n\nFrameProto\x12\x1f\n\x06images\x18\x01 \x03(\x0b\x32\x0f.sfm.cvMatProto\x12,\n\x0c\x63\x61meraMatrix\x18\x02 \x01(\x0b\x32\x16.sfm.CameraMatrixProto\x12\x32\n\x0f\x63\x61meraBodyTrans\x18\x03 \x01(\x0b\x32\x19.sfm.CameraBodyTransProto\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.sfm.MetadataProto\x12\n\n\x02id\x18\x05 \x01(\x06\x12\x0b\n\x03seq\x18\x06 \x01(\x06\x12\x10\n\x08\x62\x61seline\x18\x08 \x01(\x02\x12\x1d\n\x03roi\x18\t \x01(\x0b\x32\x10.sfm.CvRectProto\x12!\n\tkeypoints\x18\n \x01(\x0b\x32\x0e.sfm.Keypoints\x12$\n\x0b\x64\x65scriptors\x18\x0b \x01(\x0b\x32\x0f.sfm.cvMatProtoB*\n\x14\x63vg.sfmPipeline.mainB\x12PipelineOutMessage')
 
 
 
@@ -77,8 +77,8 @@ _METADATAPROTO_SENSORTYPE = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=553,
-  serialized_end=656,
+  serialized_start=738,
+  serialized_end=841,
 )
 
 
@@ -174,6 +174,103 @@ _CVMATPROTO = descriptor.Descriptor(
 )
 
 
+_KEYPOINTS_CVKEYPOINT = descriptor.Descriptor(
+  name='cvKeypoint',
+  full_name='sfm.Keypoints.cvKeypoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='ptX', full_name='sfm.Keypoints.cvKeypoint.ptX', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='ptY', full_name='sfm.Keypoints.cvKeypoint.ptY', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='size', full_name='sfm.Keypoints.cvKeypoint.size', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='angle', full_name='sfm.Keypoints.cvKeypoint.angle', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=True, default_value=-1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='response', full_name='sfm.Keypoints.cvKeypoint.response', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='octave', full_name='sfm.Keypoints.cvKeypoint.octave', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='class_id', full_name='sfm.Keypoints.cvKeypoint.class_id', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=314,
+  serialized_end=437,
+)
+
+_KEYPOINTS = descriptor.Descriptor(
+  name='Keypoints',
+  full_name='sfm.Keypoints',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='keypoints', full_name='sfm.Keypoints.keypoints', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[_KEYPOINTS_CVKEYPOINT, ],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=255,
+  serialized_end=437,
+)
+
+
 _CAMERAMATRIXPROTO = descriptor.Descriptor(
   name='CameraMatrixProto',
   full_name='sfm.CameraMatrixProto',
@@ -197,8 +294,8 @@ _CAMERAMATRIXPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=254,
-  serialized_end=287,
+  serialized_start=439,
+  serialized_end=472,
 )
 
 
@@ -225,8 +322,8 @@ _CAMERABODYTRANSPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=289,
-  serialized_end=325,
+  serialized_start=474,
+  serialized_end=510,
 )
 
 
@@ -324,8 +421,8 @@ _METADATAPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=328,
-  serialized_end=656,
+  serialized_start=513,
+  serialized_end=841,
 )
 
 
@@ -373,8 +470,8 @@ _CVRECTPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=658,
-  serialized_end=724,
+  serialized_start=843,
+  serialized_end=909,
 )
 
 
@@ -441,6 +538,20 @@ _FRAMEPROTO = descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    descriptor.FieldDescriptor(
+      name='keypoints', full_name='sfm.FrameProto.keypoints', index=8,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='descriptors', full_name='sfm.FrameProto.descriptors', index=9,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -450,13 +561,15 @@ _FRAMEPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=727,
-  serialized_end=982,
+  serialized_start=912,
+  serialized_end=1240,
 )
 
 _CVMATPROTO.fields_by_name['dims'].message_type = _CVMATDIMPROTO
 _CVMATPROTO.fields_by_name['format'].enum_type = _CVMATPROTO_IMAGETYPE
 _CVMATPROTO_IMAGETYPE.containing_type = _CVMATPROTO;
+_KEYPOINTS_CVKEYPOINT.containing_type = _KEYPOINTS;
+_KEYPOINTS.fields_by_name['keypoints'].message_type = _KEYPOINTS_CVKEYPOINT
 _METADATAPROTO.fields_by_name['type'].enum_type = _METADATAPROTO_SENSORTYPE
 _METADATAPROTO_SENSORTYPE.containing_type = _METADATAPROTO;
 _FRAMEPROTO.fields_by_name['images'].message_type = _CVMATPROTO
@@ -464,8 +577,11 @@ _FRAMEPROTO.fields_by_name['cameraMatrix'].message_type = _CAMERAMATRIXPROTO
 _FRAMEPROTO.fields_by_name['cameraBodyTrans'].message_type = _CAMERABODYTRANSPROTO
 _FRAMEPROTO.fields_by_name['metadata'].message_type = _METADATAPROTO
 _FRAMEPROTO.fields_by_name['roi'].message_type = _CVRECTPROTO
+_FRAMEPROTO.fields_by_name['keypoints'].message_type = _KEYPOINTS
+_FRAMEPROTO.fields_by_name['descriptors'].message_type = _CVMATPROTO
 DESCRIPTOR.message_types_by_name['CvMatDimProto'] = _CVMATDIMPROTO
 DESCRIPTOR.message_types_by_name['cvMatProto'] = _CVMATPROTO
+DESCRIPTOR.message_types_by_name['Keypoints'] = _KEYPOINTS
 DESCRIPTOR.message_types_by_name['CameraMatrixProto'] = _CAMERAMATRIXPROTO
 DESCRIPTOR.message_types_by_name['CameraBodyTransProto'] = _CAMERABODYTRANSPROTO
 DESCRIPTOR.message_types_by_name['MetadataProto'] = _METADATAPROTO
@@ -483,6 +599,18 @@ class cvMatProto(message.Message):
   DESCRIPTOR = _CVMATPROTO
   
   # @@protoc_insertion_point(class_scope:sfm.cvMatProto)
+
+class Keypoints(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  
+  class cvKeypoint(message.Message):
+    __metaclass__ = reflection.GeneratedProtocolMessageType
+    DESCRIPTOR = _KEYPOINTS_CVKEYPOINT
+    
+    # @@protoc_insertion_point(class_scope:sfm.Keypoints.cvKeypoint)
+  DESCRIPTOR = _KEYPOINTS
+  
+  # @@protoc_insertion_point(class_scope:sfm.Keypoints)
 
 class CameraMatrixProto(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
