@@ -11,7 +11,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='data.proto',
   package='sfm',
-  serialized_pb='\n\ndata.proto\x12\x03sfm\"+\n\rCvMatDimProto\x12\x0c\n\x04size\x18\x01 \x01(\x05\x12\x0c\n\x04step\x18\x02 \x01(\x05\"\xbb\x01\n\ncvMatProto\x12\x0e\n\x06n_dims\x18\x01 \x01(\x05\x12 \n\x04\x64ims\x18\x02 \x03(\x0b\x32\x12.sfm.CvMatDimProto\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x10\n\x08\x62ytedata\x18\x04 \x01(\x0c\x12\x30\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\x19.sfm.cvMatProto.ImageType:\x05\x63vMat\")\n\tImageType\x12\t\n\x05\x63vMat\x10\x00\x12\x08\n\x04JPEG\x10\x01\x12\x07\n\x03RAW\x10\x02\"\xb6\x01\n\tKeypoints\x12,\n\tkeypoints\x18\x01 \x03(\x0b\x32\x19.sfm.Keypoints.cvKeypoint\x1a{\n\ncvKeypoint\x12\x0b\n\x03ptX\x18\x01 \x01(\x02\x12\x0b\n\x03ptY\x18\x02 \x01(\x02\x12\x0c\n\x04size\x18\x03 \x01(\x02\x12\x11\n\x05\x61ngle\x18\x04 \x01(\x02:\x02-1\x12\x10\n\x08response\x18\x05 \x01(\x02\x12\x0e\n\x06octave\x18\x06 \x01(\x05\x12\x10\n\x08\x63lass_id\x18\x07 \x01(\x05\"!\n\x11\x43\x61meraMatrixProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"$\n\x14\x43\x61meraBodyTransProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"\xc8\x02\n\rMetadataProto\x12\r\n\x05\x61ng_x\x18\x01 \x01(\x02\x12\r\n\x05\x61ng_y\x18\x02 \x01(\x02\x12\r\n\x05\x61ng_z\x18\x03 \x01(\x02\x12\r\n\x05pos_x\x18\x04 \x01(\x02\x12\r\n\x05pos_y\x18\x05 \x01(\x02\x12\r\n\x05pos_z\x18\x06 \x01(\x02\x12\x11\n\ttimestamp\x18\x07 \x01(\x06\x12\r\n\x05val_0\x18\x08 \x01(\x02\x12\r\n\x05val_1\x18\t \x01(\x02\x12\r\n\x05val_2\x18\n \x01(\x02\x12\x34\n\x04type\x18\x0b \x01(\x0e\x32\x1d.sfm.MetadataProto.SensorType:\x07GRAVITY\"g\n\nSensorType\x12\t\n\x05\x41\x43\x43\x45L\x10\x00\x12\x08\n\x04GYRO\x10\x01\x12\x0b\n\x07MAGNETO\x10\x02\x12\x0c\n\x08LINACCEL\x10\x03\x12\x0f\n\x0bORIENTATION\x10\x04\x12\x0b\n\x07GRAVITY\x10\x05\x12\x0b\n\x07ROTVECT\x10\x06\"B\n\x0b\x43vRectProto\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xc8\x02\n\nFrameProto\x12\x1f\n\x06images\x18\x01 \x03(\x0b\x32\x0f.sfm.cvMatProto\x12,\n\x0c\x63\x61meraMatrix\x18\x02 \x01(\x0b\x32\x16.sfm.CameraMatrixProto\x12\x32\n\x0f\x63\x61meraBodyTrans\x18\x03 \x01(\x0b\x32\x19.sfm.CameraBodyTransProto\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.sfm.MetadataProto\x12\n\n\x02id\x18\x05 \x01(\x06\x12\x0b\n\x03seq\x18\x06 \x01(\x06\x12\x10\n\x08\x62\x61seline\x18\x08 \x01(\x02\x12\x1d\n\x03roi\x18\t \x01(\x0b\x32\x10.sfm.CvRectProto\x12!\n\tkeypoints\x18\n \x01(\x0b\x32\x0e.sfm.Keypoints\x12$\n\x0b\x64\x65scriptors\x18\x0b \x01(\x0b\x32\x0f.sfm.cvMatProtoB*\n\x14\x63vg.sfmPipeline.mainB\x12PipelineOutMessage')
+  serialized_pb='\n\ndata.proto\x12\x03sfm\"+\n\rCvMatDimProto\x12\x0c\n\x04size\x18\x01 \x01(\x05\x12\x0c\n\x04step\x18\x02 \x01(\x05\"\xbb\x01\n\ncvMatProto\x12\x0e\n\x06n_dims\x18\x01 \x01(\x05\x12 \n\x04\x64ims\x18\x02 \x03(\x0b\x32\x12.sfm.CvMatDimProto\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x10\n\x08\x62ytedata\x18\x04 \x01(\x0c\x12\x30\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\x19.sfm.cvMatProto.ImageType:\x05\x63vMat\")\n\tImageType\x12\t\n\x05\x63vMat\x10\x00\x12\x08\n\x04JPEG\x10\x01\x12\x07\n\x03RAW\x10\x02\"\xb6\x01\n\tKeypoints\x12,\n\tkeypoints\x18\x01 \x03(\x0b\x32\x19.sfm.Keypoints.cvKeypoint\x1a{\n\ncvKeypoint\x12\x0b\n\x03ptX\x18\x01 \x01(\x02\x12\x0b\n\x03ptY\x18\x02 \x01(\x02\x12\x0c\n\x04size\x18\x03 \x01(\x02\x12\x11\n\x05\x61ngle\x18\x04 \x01(\x02:\x02-1\x12\x10\n\x08response\x18\x05 \x01(\x02\x12\x0e\n\x06octave\x18\x06 \x01(\x05\x12\x10\n\x08\x63lass_id\x18\x07 \x01(\x05\"!\n\x11\x43\x61meraMatrixProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"$\n\x14\x43\x61meraBodyTransProto\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\x02\"x\n\x16\x44istortionCoefficients\x12\n\n\x02k1\x18\x01 \x01(\x02\x12\n\n\x02k2\x18\x02 \x01(\x02\x12\n\n\x02k3\x18\x03 \x01(\x02\x12\n\n\x02k4\x18\x04 \x01(\x02\x12\n\n\x02k5\x18\x05 \x01(\x02\x12\n\n\x02k6\x18\x06 \x01(\x02\x12\n\n\x02p1\x18\x07 \x01(\x02\x12\n\n\x02p2\x18\x08 \x01(\x02\"\xc8\x02\n\rMetadataProto\x12\r\n\x05\x61ng_x\x18\x01 \x01(\x02\x12\r\n\x05\x61ng_y\x18\x02 \x01(\x02\x12\r\n\x05\x61ng_z\x18\x03 \x01(\x02\x12\r\n\x05pos_x\x18\x04 \x01(\x02\x12\r\n\x05pos_y\x18\x05 \x01(\x02\x12\r\n\x05pos_z\x18\x06 \x01(\x02\x12\x11\n\ttimestamp\x18\x07 \x01(\x06\x12\r\n\x05val_0\x18\x08 \x01(\x02\x12\r\n\x05val_1\x18\t \x01(\x02\x12\r\n\x05val_2\x18\n \x01(\x02\x12\x34\n\x04type\x18\x0b \x01(\x0e\x32\x1d.sfm.MetadataProto.SensorType:\x07GRAVITY\"g\n\nSensorType\x12\t\n\x05\x41\x43\x43\x45L\x10\x00\x12\x08\n\x04GYRO\x10\x01\x12\x0b\n\x07MAGNETO\x10\x02\x12\x0c\n\x08LINACCEL\x10\x03\x12\x0f\n\x0bORIENTATION\x10\x04\x12\x0b\n\x07GRAVITY\x10\x05\x12\x0b\n\x07ROTVECT\x10\x06\"B\n\x0b\x43vRectProto\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xf9\x02\n\nFrameProto\x12\x1f\n\x06images\x18\x01 \x03(\x0b\x32\x0f.sfm.cvMatProto\x12,\n\x0c\x63\x61meraMatrix\x18\x02 \x01(\x0b\x32\x16.sfm.CameraMatrixProto\x12\x32\n\x0f\x63\x61meraBodyTrans\x18\x03 \x01(\x0b\x32\x19.sfm.CameraBodyTransProto\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.sfm.MetadataProto\x12\n\n\x02id\x18\x05 \x01(\x06\x12\x0b\n\x03seq\x18\x06 \x01(\x06\x12\x10\n\x08\x62\x61seline\x18\x08 \x01(\x02\x12\x1d\n\x03roi\x18\t \x01(\x0b\x32\x10.sfm.CvRectProto\x12!\n\tkeypoints\x18\n \x01(\x0b\x32\x0e.sfm.Keypoints\x12$\n\x0b\x64\x65scriptors\x18\x0b \x01(\x0b\x32\x0f.sfm.cvMatProto\x12/\n\ndistCoeffs\x18\x0c \x01(\x0b\x32\x1b.sfm.DistortionCoefficientsB*\n\x14\x63vg.sfmPipeline.mainB\x12PipelineOutMessage')
 
 
 
@@ -77,8 +77,8 @@ _METADATAPROTO_SENSORTYPE = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=738,
-  serialized_end=841,
+  serialized_start=860,
+  serialized_end=963,
 )
 
 
@@ -327,6 +327,83 @@ _CAMERABODYTRANSPROTO = descriptor.Descriptor(
 )
 
 
+_DISTORTIONCOEFFICIENTS = descriptor.Descriptor(
+  name='DistortionCoefficients',
+  full_name='sfm.DistortionCoefficients',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='k1', full_name='sfm.DistortionCoefficients.k1', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='k2', full_name='sfm.DistortionCoefficients.k2', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='k3', full_name='sfm.DistortionCoefficients.k3', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='k4', full_name='sfm.DistortionCoefficients.k4', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='k5', full_name='sfm.DistortionCoefficients.k5', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='k6', full_name='sfm.DistortionCoefficients.k6', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='p1', full_name='sfm.DistortionCoefficients.p1', index=6,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='p2', full_name='sfm.DistortionCoefficients.p2', index=7,
+      number=8, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=512,
+  serialized_end=632,
+)
+
+
 _METADATAPROTO = descriptor.Descriptor(
   name='MetadataProto',
   full_name='sfm.MetadataProto',
@@ -421,8 +498,8 @@ _METADATAPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=513,
-  serialized_end=841,
+  serialized_start=635,
+  serialized_end=963,
 )
 
 
@@ -470,8 +547,8 @@ _CVRECTPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=843,
-  serialized_end=909,
+  serialized_start=965,
+  serialized_end=1031,
 )
 
 
@@ -552,6 +629,13 @@ _FRAMEPROTO = descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    descriptor.FieldDescriptor(
+      name='distCoeffs', full_name='sfm.FrameProto.distCoeffs', index=10,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -561,8 +645,8 @@ _FRAMEPROTO = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=912,
-  serialized_end=1240,
+  serialized_start=1034,
+  serialized_end=1411,
 )
 
 _CVMATPROTO.fields_by_name['dims'].message_type = _CVMATDIMPROTO
@@ -579,11 +663,13 @@ _FRAMEPROTO.fields_by_name['metadata'].message_type = _METADATAPROTO
 _FRAMEPROTO.fields_by_name['roi'].message_type = _CVRECTPROTO
 _FRAMEPROTO.fields_by_name['keypoints'].message_type = _KEYPOINTS
 _FRAMEPROTO.fields_by_name['descriptors'].message_type = _CVMATPROTO
+_FRAMEPROTO.fields_by_name['distCoeffs'].message_type = _DISTORTIONCOEFFICIENTS
 DESCRIPTOR.message_types_by_name['CvMatDimProto'] = _CVMATDIMPROTO
 DESCRIPTOR.message_types_by_name['cvMatProto'] = _CVMATPROTO
 DESCRIPTOR.message_types_by_name['Keypoints'] = _KEYPOINTS
 DESCRIPTOR.message_types_by_name['CameraMatrixProto'] = _CAMERAMATRIXPROTO
 DESCRIPTOR.message_types_by_name['CameraBodyTransProto'] = _CAMERABODYTRANSPROTO
+DESCRIPTOR.message_types_by_name['DistortionCoefficients'] = _DISTORTIONCOEFFICIENTS
 DESCRIPTOR.message_types_by_name['MetadataProto'] = _METADATAPROTO
 DESCRIPTOR.message_types_by_name['CvRectProto'] = _CVRECTPROTO
 DESCRIPTOR.message_types_by_name['FrameProto'] = _FRAMEPROTO
@@ -623,6 +709,12 @@ class CameraBodyTransProto(message.Message):
   DESCRIPTOR = _CAMERABODYTRANSPROTO
   
   # @@protoc_insertion_point(class_scope:sfm.CameraBodyTransProto)
+
+class DistortionCoefficients(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _DISTORTIONCOEFFICIENTS
+  
+  # @@protoc_insertion_point(class_scope:sfm.DistortionCoefficients)
 
 class MetadataProto(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType

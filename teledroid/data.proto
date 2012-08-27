@@ -42,6 +42,17 @@ message CameraBodyTransProto {
 	repeated float data = 1;
 }
 
+message DistortionCoefficients {
+	optional float k1 = 1;
+	optional float k2 = 2;
+	optional float k3 = 3;
+	optional float k4 = 4;
+	optional float k5 = 5;
+	optional float k6 = 6;
+	optional float p1 = 7;
+	optional float p2 = 8;
+}
+
 message MetadataProto {
 	optional float ang_x = 1;
 	optional float ang_y = 2;
@@ -85,5 +96,6 @@ message FrameProto {
 	optional CvRectProto roi = 9;
 	optional Keypoints keypoints = 10;
 	optional cvMatProto descriptors = 11;
+	optional DistortionCoefficients distCoeffs = 12;
 	
 }

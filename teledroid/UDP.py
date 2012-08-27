@@ -126,13 +126,15 @@ class UDPread(threading.Thread):
                                     matC = frame.cameraBodyTrans
                                     mat2 ='{: > 6.3f} {: > 6.3f} {: > 6.3f}\n      {: > 6.3f} {: > 6.3f} {: > 6.3f}\n      {: > 6.3f} {: > 6.3f} {: > 6.3f}'.format(*matC.data)
                                     self.showMat.set('  K:  {: >24}\n\n  R:  {: >24}'.format(mat,mat2))
-                                    
+                                    distCoeffs = frame.distCoeffs
+                                    print 'hola'
+                                    print distCoeffs.k1, distCoeffs.k2, distCoeffs.k3, distCoeffs.k4, distCoeffs.k5, distCoeffs.k6
                                     # save data
                                     f = open(file_name, 'w')
                                     f.write(message)
                                     f.close
                                     latestFr = frame.seq
-                                else:
+                                if matches.imageLseq:
                                     j = j + 1
                                     file_name = 'logs/%03dto%03d.mtc'%(matches.imageLseq, matches.imageRseq)
                                     # self.accum = '\n'.join((self.accum,'   matches  >> {}  |  devId: {:#02}  |  Checksum OK'.format(file_name, matches.id)))
